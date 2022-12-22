@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "4fb7f942-8b1a-4e33-bad4-98fe654df0cf",
+		"name": "Metro Bot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sessions",
+			"item": [
+				{
+					"name": "Patch",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sessionId\":\"1\",\r\n    \"botId\":1234,\r\n    \"phoneNumber\": 18979034,\r\n    \"paymentStatus\": false,\r\n    \"isActive\" : true,\r\n        \"conversation\":[{\"msgType\":1,\"messageText\":\"One way\",\"createdAt\": \"2022-12-05T04:55:52.474Z\",\r\n            \"updatedAt\": \"2022-12-05T04:55:52.474Z\"}]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/sessions/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"sessions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sessionId\":\"1\",\r\n    \"botId\":1234,\r\n    \"phoneNumber\": 18979034,\r\n    \"conversation\":[{\"msgType\":1,\"messageText\":\"Hi\",\"createdAt\": \"2022-12-05T04:55:52.474Z\",\r\n            \"updatedAt\": \"2022-12-05T04:55:52.474Z\"}]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/sessions/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"sessions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/sessions/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"sessions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/sessions/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"sessions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payments",
+			"item": [
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transactionId\": \"121\",\r\n    \"transactionAmount\": 10.9,\r\n    \"ticketType\": \"one-way\",\r\n    \"numberOfTickets\": 1,\r\n    \"sourceStation\": \"ABC\",\r\n    \"destinationStation\": \"XYZ\",\r\n    \"tickets\":[{\r\n        \"ticketId\": \"1\",\r\n        \"ticketQR\":\"ABC\",\r\n        \"ticketStatus\":\"confirmed\"\r\n    }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/payments",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/payments",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Stations",
+			"item": [
+				{
+					"name": "get by source & destination station",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/stations?sourceStationCode=KHP&destinationStationCode=CON",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"stations"
+							],
+							"query": [
+								{
+									"key": "sourceStationCode",
+									"value": "KHP"
+								},
+								{
+									"key": "destinationStationCode",
+									"value": "CON"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
