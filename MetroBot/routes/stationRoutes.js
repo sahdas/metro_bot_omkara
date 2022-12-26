@@ -4,8 +4,10 @@ const Station = require('../models/stationModel')
 
 // Get fare details based on the source and destination stations
 router.get('/fare', async (req, res) => {
-  const { sourceStationCode, destinationStationCode } = req.query
+  let { sourceStationCode, destinationStationCode } = req.query
 
+ sourceStationCode = sourceStationCode.toUpperCase()
+ destinationStationCode=  destinationStationCode.toUpperCase()
   // Get provided in the request
   try {
     const data = await Station.findOne({
@@ -22,7 +24,7 @@ router.get('/fare', async (req, res) => {
       result.sourceStationName = data.sourceStation
       result.destinationStationCode = destinationStationCode
       result.destinationStationName = foundValue[0].stationName
-      result.fare = foundValue[0].fare + ' INR'
+      result.fare = foundValue[0].fare
       res.json(result)
     } else {
       res.status(400).json({ message: 'Station not found' })
