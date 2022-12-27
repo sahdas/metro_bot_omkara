@@ -105,6 +105,32 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get active session against phone number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/sessions/?phoneNumber=18979034",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"sessions",
+								""
+							],
+							"query": [
+								{
+									"key": "phoneNumber",
+									"value": "18979034"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},

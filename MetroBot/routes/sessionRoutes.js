@@ -32,8 +32,15 @@ router.post('/', async (req, res) => {
 // Get all sessions
 router.get('/', async (req, res) => {
   try {
+    //If phoneNumber is passed as query param, then return the active session aganinst the Number
+    if(req.query.phoneNumber){
+      const data = await Session.findOne({phoneNumber: req.query.phoneNumber, isActive:true})
+      res.send(data)
+    }
+    else {
     const data = await Session.find()
     res.json(data)
+    }
   } catch (error) {
     res.status(500).json({ message: error.message })
   }
