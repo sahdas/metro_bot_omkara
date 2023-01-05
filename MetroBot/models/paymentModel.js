@@ -11,12 +11,13 @@ const ticketSchema = new Schema({
 }, { timestamps: true })
 
 const paymentSchema = new Schema({
-  transactionId: { type: String, default: uuidv4.v4(), required: true },
+  transactionId: { type: String, required: true ,unique: true },
   transactionAmount: Number,
   ticketType: String,
   numberOfTickets: Number,
   sourceStationCode: String,
   destinationStationCode: String,
+  phoneNumber: {type :Number , required: true},
   sessionId : { type: String, required: true},
   tickets: [ticketSchema]
 }, { timestamps: true },

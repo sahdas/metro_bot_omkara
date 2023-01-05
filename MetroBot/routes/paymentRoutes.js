@@ -17,7 +17,8 @@ router.post('/', async (req, res) => {
     numberOfTickets: req.body.numberOfTickets,
     sourceStationCode: req.body.sourceStationCode,
     destinationStationCode: req.body.destinationStationCode,
-    tickets: req.body.tickets
+    tickets: req.body.tickets,
+    phoneNumber: req.body.phoneNumber
   })
 
   try {

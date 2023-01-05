@@ -144,7 +144,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"transactionId\": \"e11f8a31-bd9a-458b-a350-a7064e906d04\",\r\n    \"sessionId\": \"1234\",\r\n    \"transactionAmount\": 10.9,\r\n    \"ticketType\": \"one-way\",\r\n    \"numberOfTickets\": 2,\r\n    \"sourceStationCode\": \"KHP\",\r\n    \"destinationStationCode\": \"COP\",\r\n    \"tickets\":[{\r\n        \"ticketId\": \"f0cca509-ee6b-447b-9b4d-f650ad1c7ccf\",\r\n        \"ticketQR\":\"\",\r\n        \"ticketStatus\":\"confirmed\"\r\n    },\r\n    {\r\n        \"ticketId\": \"e13a1ab6-175b-45d9-8fa9-78070058df43\",\r\n        \"ticketQR\":\"\",\r\n        \"ticketStatus\":\"confirmed\"\r\n    }]\r\n}",
+							"raw": "{\r\n    \"transactionId\": \"7a911021-8683-4160-abbd-3405c64bb1bb\",\r\n    \"sessionId\": \"1234\",\r\n    \"transactionAmount\": 10.9,\r\n    \"ticketType\": \"one-way\",\r\n    \"numberOfTickets\": 2,\r\n    \"sourceStationCode\": \"KHP\",\r\n    \"destinationStationCode\": \"COP\",\r\n    \"phoneNumber\":18979034,\r\n    \"tickets\":[{\r\n        \"ticketId\": \"f0cca509-ee6b-447b-9b4d-f650ad1c7ccf\",\r\n        \"ticketQR\":\"\",\r\n        \"ticketStatus\":\"confirmed\"\r\n    },\r\n    {\r\n        \"ticketId\": \"e13a1ab6-175b-45d9-8fa9-78070058df43\",\r\n        \"ticketQR\":\"\",\r\n        \"ticketStatus\":\"confirmed\"\r\n    }]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -152,7 +152,8 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/v1/payments",
+							"raw": "http://localhost:3000/v1/payments",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
