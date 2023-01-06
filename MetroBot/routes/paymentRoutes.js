@@ -5,7 +5,7 @@ const QRCode = require('qrcode')
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
 
-const ticketPDFFilePath = process.env.TICKET_PDF_FILE_PATH 
+const ticketFilePath = process.env.TICKET_FILE_PATH 
 
 // Create a new Payment
 router.post('/', async (req, res) => {
@@ -87,24 +87,24 @@ async function generateQRCodeImage(payment){
       let QRcodeInfoString= JSON.stringify(QRcodeInfo)
       //Generate QR code
       await QRCode.toFile(
-        `QRimage/${ticketId}.png`, QRcodeInfoString,
+        `${ticketFilePath}/${ticketId}.png`, QRcodeInfoString,
         [{
             data: [10, 10, 10],
             mode: 'byte'
         }])
-    //Generate pdf    
-      await pdfMaker(ticketId)
-      pdfFilePath.push(`${ticketPDFFilePath}/${ticketId}.pdf`)
+    // //Generate pdf    
+    //   await pdfMaker(ticketId)
+      pdfFilePath.push(`${ticketFilePath}/${ticketId}.png`)
   };
   return pdfFilePath
 }
 
-//Genarate pdf
+//Genarate pdf- not used now
 async function pdfMaker(ticketId) {
    
   // Create a document
   const doc = new PDFDocument();
-  doc.pipe(fs.createWriteStream(`${ticketPDFFilePath}/${ticketId}.pdf`));
+  doc.pipe(fs.createWriteStream(`${ticketFilePath}/${ticketId}.pdf`));
   doc
       .fontSize(25)
       .text(`Ticket number: ${ticketId}`, 100, 100)
